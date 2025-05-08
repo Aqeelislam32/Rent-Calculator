@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>House Expense Splitter</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🏠 Rent calculator</h1>
+    <form method="POST">
+      <label>Rent:</label><input type="number" name="rent" required><br>
+      <label>Food:</label><input type="number" name="food" required><br>
+      <label>Electricity Bill:</label><input type="number" name="electricity" required><br>
+      <label>Water Bill:</label><input type="number" name="water" required><br>
+      <label>Gas Bill:</label><input type="number" name="gas" required><br>
+      <label>Number of Persons:</label><input type="number" name="person" required><br>
+      <button type="submit">Calculate</button>
+    </form>
+
+    {% if result is not none %}
+      <div class="result">
+        <h2>💰 Per Person Share: ₹{{ result }}</h2>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
